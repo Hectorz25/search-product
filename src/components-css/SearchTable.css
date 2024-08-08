@@ -1,0 +1,20 @@
+main{
+    display: flex;
+    justify-content: center;
+}
+table{
+    width: 500px;
+    max-width: 80vh;
+    max-height: 500px;
+    text-align: center;
+    border-spacing: 0;
+    margin: 25px;
+    overflow-y: scroll;
+}
+th{
+    background-color: rgba(255, 0, 0, 0.616);
+}
+
+tbody tr:hover{
+    background-color: rgba(255, 0, 0, 0.349);
+}

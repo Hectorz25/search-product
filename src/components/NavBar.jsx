@@ -2,7 +2,8 @@ import React from 'react'
 
 export const NavBar = () => {
     const navMenu = [
-        'Gatete','GitHub'
+        {'option':'Gatete','url':'#'},
+        {'option':'GitHub','url':'https://github.com/Hectorz25'}
     ]
     const logo = 'https://www.freepnglogos.com/uploads/google-logo-png/file-google-logo-svg-wikimedia-commons-23.png';
   return (
@@ -16,7 +17,7 @@ export const NavBar = () => {
                     navMenu.map((option,index) => {
                         return(
                             <li key={index}>
-                                <a href='#'>{option}</a>
+                                <a href={option.url}>{option.option}</a>
                             </li>
                         )
                     })

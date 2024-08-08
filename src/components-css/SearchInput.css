@@ -1,0 +1,30 @@
+section{
+    display: flex;
+    justify-content: center;
+}
+
+.searchMenu{
+    margin-top: 35px;
+}
+
+.searchInput-Field{
+    background-color: #fff;
+    border: none;
+    height: 25px;
+    border-radius: 15px;
+    text-align: center;
+    color: gray;
+    font-weight: bold;
+}
+
+
+.searchButton{
+    margin-left: 5px;
+    width: 35px;
+    height: 25px;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+    background-color:  rgba(255, 0, 0, 0.616);
+    border-radius: 15px;
+}
