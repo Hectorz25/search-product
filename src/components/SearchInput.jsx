@@ -1,17 +1,62 @@
-import React from 'react'
-import { FaSearch } from 'react-icons/fa'
+import React from "react";
+import { useForm } from "react-hook-form";
+import { FaSearch } from "react-icons/fa";
 
 export const SearchInput = () => {
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    //console.log(data);
+    ajaxSearch(data);
+  };
+
+  const ajaxSearch = (productSearch) => {
+    const config = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(productSearch),
+    };
+    const urlApi =
+      "http://localhost:80/aprendiendo-react/projects/01-malova-search/src/api/searchProduct.php";
+    fetch(urlApi, config)
+      .then((res) => {
+        if (!res.ok) {
+          throw new Error("Network response was not ok");
+        }
+        return res.json();
+      })
+      .then((result) => {
+        console.log(result); // Success
+      })
+      .catch((err) => {
+        console.error("Error:", err); //Error
+      });
+  };
+
   return (
-    <section>
-        <div className='searchMenu'>
-            <form action="#" className='form-controls'>
-                <div>
-                    <input type="text" className='searchInput-Field' placeholder='Search by Name or SKU' autoComplete='false'/>  
-                    <button type='button' className='searchButton'><FaSearch className=''/></button>
-                </div>
-            </form>
-        </div>
+    <section className="section-input-search">
+      <div className="searchMenu">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          autoComplete="off"
+          className="form-controls"
+          id="form-search"
+        >
+          <div>
+            <input
+              type="text"
+              className="searchInput-Field"
+              placeholder="Search by Name or SKU"
+              {...register("searchProduct", {
+                required: true,
+              })}
+            />
+            <button type="submit" className="searchButton">
+              <FaSearch />
+            </button>
+          </div>
+        </form>
+      </div>
     </section>
-  )
-}
+  );
+};
