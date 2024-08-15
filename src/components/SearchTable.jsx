@@ -35,7 +35,7 @@ export const SearchTable = () => {
         },        
     ]
   return (
-        <section>
+        <section className='section-table-search'>
             <table className='productsTable'>
                 <thead>
                     <tr>

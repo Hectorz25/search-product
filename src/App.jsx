@@ -4,7 +4,6 @@ import './components-css/SearchInput.css'
 
 import { NavBar } from './components/NavBar'
 import { SearchInput } from './components/SearchInput'
-import { SearchTable } from './components/SearchTable'
 
 function App() {
 
@@ -12,7 +11,6 @@ function App() {
     <>
       <NavBar/>
       <SearchInput/>
-      <SearchTable/>
     </>
   )
 }
