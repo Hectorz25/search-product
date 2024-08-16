@@ -26,7 +26,7 @@ export const SearchTable = ({productList}) => {
         <tbody>
           {initialMessage ? (
             <tr>
-              <td colSpan={4}>Please search for a product</td>
+              <td colSpan={4}>Search a product</td>
             </tr>
           ) : productList.length > 0 ? (
             productList.map((element, index) => (

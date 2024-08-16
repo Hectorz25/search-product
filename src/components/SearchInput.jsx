@@ -19,6 +19,7 @@ export const SearchInput = () => {
     };
     const urlApi =
       "http://localhost:80/aprendiendo-react/projects/01-malova-search/src/api/searchProduct.php";
+      
     fetch(urlApi, config)
       .then((res) => {
         if (!res.ok) {

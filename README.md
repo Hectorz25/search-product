@@ -1,8 +1,9 @@
 # React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+FOR THIS TO WORK, YOU MUST HAVE A MYSQL DATABASE.
 
-Currently, two official plugins are available:
+-USE YOUR CREDENTIALS TO ENTER THE DATABASE (IN SRC/API/CONNECTION.PHP YOU CAN PLACE THE CORRESPONDING CREDENTIALS).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+-THE TABLE USED, AS WELL AS THE TEST DATA, CAN BE CREATED DIRECTLY BY COPYING AND PASTE THE CONTENT OF THE "SQL-EXAMPLE.TXT" FILE IN YOUR DATABASE.
+
+-IN THE "SEARCHINPUT" COMPONENT YOU MUST CHANGE THE "URLAPI" TO THE ADDRESS OF WHERE YOU HAVE THE FILES IN THE API FOLDER. (IN THIS CASE, XAMPP WAS USED AND THE ENTIRE PROJECT IS INSIDE XAMPP'S HTDOCS, AND SINCE XAMPP RUNS ON A DIFFERENT PORT THAN VITE, THE COMPLETE PATH IS PLACED AND NOT "../API/SEARCHPRODUCT.PHP")

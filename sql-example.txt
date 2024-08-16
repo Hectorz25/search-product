@@ -2,6 +2,8 @@ SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
 
+DATA BASE: `react_test`
+
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `sku` varchar(12) NOT NULL,
@@ -113,10 +115,12 @@ INSERT INTO `products` (`id`, `sku`, `name`, `price`, `stock`, `barcode`) VALUES
 (199, '000000000099', 'Mouse 6', 75, 57, NULL),
 (200, '000000000100', 'Smartwatch 91', 14, 94, NULL);
 
-
 ALTER TABLE `products`
   ADD PRIMARY KEY (`id`);
 
+AUTO_INCREMENT de las tablas volcadas
+
+AUTO_INCREMENT de la tabla `products`
 
 ALTER TABLE `products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=201;
