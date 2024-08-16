@@ -1,78 +1,49 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from "react";
 
-export const SearchTable = () => {
-    const tableHeader = ['SKU','PRODUCT','PRICE','STOCK']
-    const product= [
-        {
-            'sku': '02211',
-            'name': 'Name product #1',
-            'price': '1656',
-            'stock': '96',
-        },
-        {
-            'sku': '066826',
-            'name': 'Name product #2',
-            'price': '999',
-            'stock': '108',
-        },
-        {
-            'sku': '090099',
-            'name': 'Name product #3',
-            'price': '6999',
-            'stock': '10',
-        },
-        {
-            'sku': '109872',
-            'name': 'Name product #4',
-            'price': '6855',
-            'stock': '5',
-        },
-        {
-            'sku': '112358',
-            'name': 'Name product #5',
-            'price': '25',
-            'stock': '800',
-        },        
-    ]
+export const SearchTable = ({productList}) => {
+    const [initialMessage, setInitialMessage] = useState(true);
+
+  // Update the search status based on productList changes
+  useEffect(() => {
+    // When you change productList check that it is not null
+    if (productList != null) {
+        setInitialMessage(false);
+    } 
+  }, [productList]);
+
+  const tableHeader = ["SKU", "PRODUCT", "PRICE", "STOCK"];
+
   return (
-        <section className='section-table-search'>
-            <table className='productsTable'>
-                <thead>
-                    <tr>
-                    {
-                        tableHeader.map((header, index) => {
-                            return(
-                                <th key={index}>
-                                    {header}
-                                </th>
-                            )
-                        })
-                    }
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                       product.map((element,index) => {
-                        return(
-                            <tr key={index}>
-                            <td>
-                                {element.sku}
-                            </td>
-                            <td>
-                                {element.name}
-                            </td>
-                            <td>
-                                ${element.price}
-                            </td>
-                            <td>
-                                #{element.stock}
-                            </td>
-                        </tr>
-                        )
-                       })
-                    }
-                </tbody>
-            </table>
-        </section>
-  )
-}
+    <section className="section-table-search">
+      <table className="productsTable">
+        <thead>
+          <tr>
+            {tableHeader.map((header, index) => (
+              <th key={index}>{header}</th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {initialMessage ? (
+            <tr>
+              <td colSpan={4}>Please search for a product</td>
+            </tr>
+          ) : productList.length > 0 ? (
+            productList.map((element, index) => (
+              <tr key={index}>
+                <td>{element.sku}</td>
+                <td>{element.name}</td>
+                <td>${element.price}</td>
+                <td>#{element.stock}</td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan={4}>No products found</td>
+            </tr>
+          )}
+        </tbody>
+      </table>
+    </section>
+  );
+};

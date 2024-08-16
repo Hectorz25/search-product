@@ -1,13 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaSearch } from "react-icons/fa";
 import { SearchTable } from "./SearchTable";
 
 export const SearchInput = () => {
   const { register, handleSubmit } = useForm();
+  const [packageToSend, setPackageToSend] = useState(null);
 
   const onSubmit = (data) => {
-    //console.log(data);
     ajaxSearch(data);
   };
 
@@ -27,7 +27,7 @@ export const SearchInput = () => {
         return res.json();
       })
       .then((result) => {
-        console.log(result); // Success
+        setPackageToSend(result); // Update the state with the result
       })
       .catch((err) => {
         console.error("Error:", err); //Error
@@ -60,7 +60,7 @@ export const SearchInput = () => {
           </form>
         </div>
       </section>
-      <SearchTable />
+      <SearchTable productList={packageToSend} />
     </main>
   );
 };

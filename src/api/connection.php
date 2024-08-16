@@ -10,7 +10,7 @@ function connectBD (){
         die (json_encode(["result" => "CONNECTION ERROR: ".$conn->connect_error]));
     } else {
         $conn->set_charset("utf8");
-    return $conn;
     }
+    return $conn;
 }
 ?>
