@@ -1,15 +1,15 @@
 import React from 'react'
+import routes from '../routes/routes';
 
 export const NavBar = () => {
     const navMenu = [
         {'option':'Gatete','url':'#'},
-        {'option':'GitHub','url':'https://github.com/Hectorz25'}
+        {'option':'GitHub','url': routes.getGithubProfile}
     ]
-    const logo = 'https://www.freepnglogos.com/uploads/google-logo-png/file-google-logo-svg-wikimedia-commons-23.png';
   return (
     <header className='header'>
         <div className="logo">
-            <img src={logo} alt="brand Logo" />
+            <img src={routes.getLogoUrl} alt="brand Logo" />
         </div>
         <nav>
             <ul className='nav-links'>

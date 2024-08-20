@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaSearch } from "react-icons/fa";
 import { SearchTable } from "./SearchTable";
+import routes from "../routes/routes";
 
 export const SearchInput = () => {
   const { register, handleSubmit } = useForm();
@@ -17,10 +18,8 @@ export const SearchInput = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(productSearch),
     };
-    const urlApi =
-      "http://localhost:80/aprendiendo-react/projects/01-malova-search/src/api/searchProduct.php";
       
-    fetch(urlApi, config)
+    fetch(routes.getApiUrl, config)
       .then((res) => {
         if (!res.ok) {
           throw new Error("Network response was not ok");
@@ -45,7 +44,7 @@ export const SearchInput = () => {
             className="form-controls"
             id="form-search"
           >
-            <div>
+            <div className="searchInputBar">
               <input
                 type="text"
                 className="searchInput-Field"

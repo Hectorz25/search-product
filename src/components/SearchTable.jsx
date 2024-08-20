@@ -25,12 +25,12 @@ export const SearchTable = ({productList}) => {
         </thead>
         <tbody>
           {initialMessage ? (
-            <tr>
-              <td colSpan={4}>Search a product</td>
+            <tr className="noShowingItems">
+              <td colSpan={4}>Try search something :D</td>
             </tr>
           ) : productList.length > 0 ? (
             productList.map((element, index) => (
-              <tr key={index}>
+              <tr key={index} className="showingItems">
                 <td>{element.sku}</td>
                 <td>{element.name}</td>
                 <td>${element.price}</td>
@@ -38,7 +38,7 @@ export const SearchTable = ({productList}) => {
               </tr>
             ))
           ) : (
-            <tr>
+            <tr className="noShowingItems">
               <td colSpan={4}>No products found</td>
             </tr>
           )}

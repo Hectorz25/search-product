@@ -10,6 +10,7 @@ table{
     border-spacing: 0;
     margin: 25px;
     overflow-y: scroll;
+    font-weight: bold;
 }
 th{
     background-color: rgba(255, 0, 0, 0.616);
@@ -17,4 +18,14 @@ th{
 
 tbody tr:hover{
     background-color: rgba(255, 0, 0, 0.349);
+}
+
+.noShowingItems{
+    height: 75px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.showingItems{
+    font-size: 17px;
 }
